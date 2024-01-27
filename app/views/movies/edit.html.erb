@@ -1,0 +1,39 @@
+<div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <h1>Editing Movie</h1>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @movie.errors.count %> errors prohibited this movie from being saved:</h2>
+    
+      <ul>
+        <% @movie.errors.full_messages.each do |error| %>
+        <li>
+          <%= error %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_with model:@movie, local: true do |f| %>
+    <lavel>Title</lavel>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+    
+    <lavel>Youtube-Url</lavel>
+    <div>
+      <%= f.text_field :youtube_url %>
+    </div>
+  
+    <lavel>Opinion</lavel>
+    <div>
+      <%= f.text_area :body %>
+    </div>
+    <%= f.submit 'Update movie', class: "btn btn-success" %>
+  <% end %>
+  
+  <div class="bottom">
+    <p>
+      <%= link_to "Show", movie_path(@movie.id) %> | <%= link_to "Back", movies_path %>
+    </p>
+  </div>
+</div>

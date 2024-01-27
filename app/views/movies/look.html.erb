@@ -1,0 +1,27 @@
+  <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <p></p>
+    <p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @movie.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+    
+    <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "default-image.jpg" %></td>
+    <p>
+      <%= @movie.user.name %>
+    </p>
+    
+    <p>
+      <strong>Title:</strong>
+      <%= @movie.title %>
+    </p>
+    
+    <p>
+      <strong>Opinion:</strong>
+      <%= @movie.body %>
+    </p>
+    
+    <div class="bottom">
+      <p>
+        <%= link_to "Show", movie_path(@movie.id) %> | <%= link_to "Back", movies_path %>
+      </p>
+    </div>
+  </div>
